@@ -42,7 +42,7 @@
 
 		// Bind values
 		public function bind($param, $value, $type = null) {
-			if(is_null(true)) {
+			if(is_null($type)) {
 				switch(true){
 					case is_int($value):
 						$type = PDO::PARAM_INT;
@@ -81,6 +81,10 @@
 		// Get row count
 		public function rowCount() {
 			return $this->stmt->rowCount();
+		}
+
+		public function revealQuery() {
+			return $this->stmt;
 		}
 
 	}
